@@ -9,11 +9,11 @@ Rectangle = __import__('9-rectangle').Rectangle
 
 class Square(Rectangle):
     """implementation
-            """
+    """
 
     def __init__(self, size):
         """initialization
-                        Args:
-                                        size (int): size
-                                                """
+        Args:
+             size (int): size
+        """
         super().__init__(size, size)
