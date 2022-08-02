@@ -1,16 +1,53 @@
 #!/usr/bin/python3
-"""append after module"""
+import sys
 
 
-def append_after(filename="", search_string="", new_string=""):
-    """append a text after a substring line"""
+def print_info():
+    print('File size: {:d}'.format(file_size))
 
-    with open(filename, 'r') as f:
-        content = f.readlines()
-        for (index, line) in enumerate(content):
-            if line.find(search_string) != -1:
-                content.insert(index+1, new_string)
-                new_content = "".join(content)
-                f = open(filename, 'w')
-                f.write(new_content)
-                f.close()
+    for scode, code_times in sorted(status_codes.items()):
+        if code_times > 0:
+            print('{}: {:d}'.format(scode, code_times))
+
+
+status_codes = {
+    '200': 0,
+    '301': 0,
+    '400': 0,
+    '401': 0,
+    '403': 0,
+    '404': 0,
+    '405': 0,
+    '500': 0
+}
+
+lc = 0
+file_size = 0
+
+try:
+    for line in sys.stdin:
+        if lc != 0 and lc % 10 == 0:
+            print_info()
+
+        pieces = line.split()
+
+        try:
+            status = int(pieces[-2])
+
+            if str(status) in status_codes.keys():
+                status_codes[str(status)] += 1
+        except:
+            pass
+
+        try:
+            file_size += int(
+                pieces[-1])
+        except:
+            pass
+
+        lc += 1
+
+    print_info()
+except KeyboardInterrupt:
+    print_info()
+    raise
