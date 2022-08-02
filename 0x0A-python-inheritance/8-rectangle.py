@@ -12,7 +12,7 @@ class Rectangle(BaseGeometry):
     """
     def __init__(self, width, height):
         """initialisation
-        
+
         Args:
             width (int): width
             height (int): height
