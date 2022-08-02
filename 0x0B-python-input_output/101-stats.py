@@ -40,8 +40,7 @@ try:
             pass
 
         try:
-            file_size += int(
-                pieces[-1])
+            file_size += int(pieces[-1])
         except:
             pass
 
