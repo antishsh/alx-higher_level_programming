@@ -99,7 +99,7 @@ class Rectangle(Base):
         """prints # shape of the rectangle
         """
         print('\n'*self.y, end='')
-        for l in range(self.height):
+        for L in range(self.height):
             print(' '*self.x + '#'*self.width)
 
     def update(self, *args, **kwargs):
@@ -118,6 +118,4 @@ class Rectangle(Base):
         """rectangle to dictionary
         """
 
-        return {
-            'x': self.x, 'y': self.y, 'id': self.id,
-            'height': self.height, 'width': self.width}
+        return {'x': self.x, 'y': self.y, 'id': self.id,'height': self.height, 'width': self.width}
