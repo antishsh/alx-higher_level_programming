@@ -7,65 +7,52 @@ This module defines the a Rectangle Object.
 """
 
 
-
-
-
 class Rectangle:
 
-        """Retangle object with getter and setters
+    """Retangle object with getter and setters """
 
-            """
+    def __init__(self, width=0, height=0):
 
-                def __init__(self, width=0, height=0):
+        self.width = width
 
-                            self.width = width
+        self.height = height
 
-                                    self.height = height
+    @property
+      def width(self):
 
+           return self.__width
 
+    @width.setter
+      def width(self, value):
 
-                                        @property
+           if not isinstance(value, int):
 
-                                            def width(self):
+                raise TypeError(
+                    'width must be an integer')
 
-                                                        return self.__width
+            elif value < 0:
 
+                raise ValueError(
+                    'width must be >= 0')
 
+                self.__width = value
 
-                                                        @width.setter
+    @property
+      def height(self):
 
-                                                            def width(self, value):
+           return self.__height
 
-                                                                        if not isinstance(value, int):
+    @height.setter
+      def height(self, value):
 
-                                                                                        raise TypeError('width must be an integer')
+           if not isinstance(value, int):
 
-                                                                                            elif value < 0:
+                raise TypeError(
+                    'height must be an integer')
 
-                                                                                                            raise ValueError('width must be >= 0')
+            elif value < 0:
 
-                                                                                                                self.__width = value
+                raise ValueError(
+                    'height must be >= 0')
 
-
-
-                                                                                                                    @property
-
-                                                                                                                        def height(self):
-
-                                                                                                                                    return self.__height
-
-
-
-                                                                                                                                    @height.setter
-
-                                                                                                                                        def height(self, value):
-
-                                                                                                                                                    if not isinstance(value, int):
-
-                                                                                                                                                                    raise TypeError('height must be an integer')
-
-                                                                                                                                                                        elif value < 0:
-
-                                                                                                                                                                                        raise ValueError('height must be >= 0')
-
-                                                                                                                                                                                            self.__height = value
+                self.__height = value
